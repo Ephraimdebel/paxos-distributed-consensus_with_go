@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: paxos-web
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: paxos-web
+  template:
+    metadata:
+      labels:
+        app: paxos-web
+    spec:
+      containers:
+      - name: paxos-web
+        image: paxos-web:latest
+        ports:
+        - containerPort: 8080
